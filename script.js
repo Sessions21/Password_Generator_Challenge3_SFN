@@ -16,7 +16,6 @@ function generatePassword () {
   
   if (userNumbers){
     possibleChar = possibleChar.concat(numberChar);
-    console.log("usernumber ran");
   }
   if (userLower){
     possibleChar = possibleChar.concat(lowerChar);
@@ -27,12 +26,9 @@ function generatePassword () {
   if (userSpecial){
     possibleChar = possibleChar.concat(specialChar);
   }
-  console.log(possibleChar);
   for (var i=0; i <= userLength; i++){
     var randomIndex = Math.floor(Math.random() * possibleChar.length);
-    console.log(randomIndex)
     var randomLetter = possibleChar[randomIndex];
-    console.log(randomLetter);
     password.push(randomLetter);
   }
   return password;
