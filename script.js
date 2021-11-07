@@ -8,6 +8,10 @@ function generatePassword () {
   var upperChar = ["A", "B", "C", "D", "E", "F", "G", "h", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var specialChar = ["#", "&", "@", "!", "<", "}", "*", "^", "$", "+", "%", "?", "~"];
   var userLength = prompt ("How many characters wouls you like your password? Length between 8 - 128");
+  if (userLength < 8 || userLength > 128) {
+    alert("Password length must be at least 8 characters.  Please adjust length.");
+    return;
+  }
   var userLower = confirm ("Would you like to use lowercase letters?");
   var userUpper = confirm ("Would you like to use uppercase letters?"); 
   var userSpecial = confirm ("Would you like to use special characters?"); 
@@ -26,10 +30,10 @@ function generatePassword () {
   if (userSpecial){
     possibleChar = possibleChar.concat(specialChar);
   }
-  for (var i=0; i <= userLength; i++){
+  for (var i=0; i < userLength; i++){
     var randomIndex = Math.floor(Math.random() * possibleChar.length);
-    var randomLetter = possibleChar[randomIndex];
-    password.push(randomLetter);
+    var randomChar = possibleChar[randomIndex];
+    password.push(randomChar);
   }
   return password;
 }
